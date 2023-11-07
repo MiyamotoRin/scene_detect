@@ -130,6 +130,17 @@ opencv-headless = ["opencv-python-headless"]
 pyav = ["av"]
 
 [[package]]
+name = "thumbnail"
+version = "1.5"
+description = "Thumbnail/Preview generator for 450 different filetypes in python."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "thumbnail-1.5-py3-none-any.whl", hash = "sha256:744ba6e5974165f573296d593349857867fe47161021994c73d1e1264a4e155e"},
+    {file = "thumbnail-1.5.tar.gz", hash = "sha256:27ebc7a9955cd2df8061be64efc0b5b60526f26ae768c12481f3611ba03f7a03"},
+]
+
+[[package]]
 name = "tqdm"
 version = "4.66.1"
 description = "Fast, Extensible Progress Meter"
@@ -152,4 +163,4 @@ telegram = ["requests"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<=3.12"
-content-hash = "d6736bcc82a832f305c864526e75cd7420ce210a249c84bd74b02bdf282380fd"
+content-hash = "815ae19e21eb167343bb5b50f2a212ba37f1b5712638e2f6d5b4a3c47a47f9c3"
