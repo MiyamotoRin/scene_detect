@@ -3,13 +3,24 @@ import os
 
 # generate_thumbnail(input, output, options)
 
-input_path = 'scenes/sample-Scene-028.mp4'
+def create_thumbnails_for_all_videos(directory_path, thumbnail_options):   
+    # ディレクトリ内の全てのファイルを取得
+    files = os.listdir(directory_path)
 
-filename = os.path.basename(input_path)
-basename, extension = os.path.splitext(filename)
-output_dir = '/Users/techkidsschool/Desktop/scene_detect/thumbnails/'
-output_path = output_dir + basename + '.png'
-print(output_path)
+    # ディレクトリ内の各ファイルに対して処理
+    for file_name in files:
+        # ファイルの完全なパスを生成
+        file_path = os.path.join(directory_path, file_name)
+        
+        # ファイルが動画ファイルかどうかをチェック（例: .mp4）
+        if os.path.isfile(file_path) and file_path.lower().endswith(('.mp4', '.avi', '.mov')):
+            # サムネイルの保存先パスを生成
+            thumbnail_path = os.path.join('thumbnails', f'{os.path.splitext(file_name)[0]}.png')
+            print(thumbnail_path)
+            # サムネイルを生成
+            generate_thumbnail(file_path, thumbnail_path, thumbnail_options)
+
+input_path = 'scenes'
 
 options = {
 	'trim': False,
@@ -18,4 +29,5 @@ options = {
 	'quality': 85,
 	'type': 'thumbnail'
 }
-generate_thumbnail(input_path, output_path, options)
+
+create_thumbnails_for_all_videos(input_path, options)
