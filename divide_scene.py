@@ -1,8 +1,17 @@
 from scenedetect import detect, AdaptiveDetector, split_video_ffmpeg
+import os
 
-scene_list = detect('sample.mp4', AdaptiveDetector())
-split_video_ffmpeg('sample.mp4', 
-                   scene_list, 
-                   output_file_template='scenes/$VIDEO_NAME-Scene-$SCENE_NUMBER.mp4', 
-                   show_progress=True,
-                   )
+def divide_scene_from_all_videos(dir_path):
+    files = os.listdir(dir_path)
+    for file_name in files:
+        file_path = os.path.join(dir_path, file_name)
+        if os.path.isfile(file_path) and file_path.lower().endswith(('.mp4', '.avi', '.mov')):
+            scene_list = detect(file_path, AdaptiveDetector())
+            split_video_ffmpeg(file_path, 
+                            scene_list, 
+                            output_file_template=f'{dir_path}/scenes/$VIDEO_NAME-$SCENE_NUMBER.mp4', 
+                            show_progress=True,
+                            )
+            
+input_path = '/Volumes/Steam SSD/videos'
+divide_scene_from_all_videos(input_path)
