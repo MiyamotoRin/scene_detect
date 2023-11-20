@@ -13,6 +13,7 @@ opencv-python = "^4.8.1.78"
 thumbnail = "^1.5"
 torch = "^2.1.1"
 open-clip-torch = "^2.23.0"
+usearch = "^2.8.13"
 
 
 [build-system]
