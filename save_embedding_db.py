@@ -11,7 +11,7 @@ model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-32', pretrai
 tokenizer = open_clip.get_tokenizer('ViT-B-32')
 
 # Define the directory path containing the images
-directory_path = '/Volumes/Steam SSD/videos/thumbnails/'  # This path will need to be updated by the user
+directory_path = '/Volumes/muheS1T01/videos/thumbnails/'  # This path will need to be updated by the user
 
 # List all image files in the specified directory
 image_files = [os.path.join(directory_path, file) for file in os.listdir(directory_path) if file.lower().endswith(('.png', '.jpg', '.jpeg'))]
