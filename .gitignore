@@ -2,3 +2,4 @@
 *.png
 *.usearch
 *.db
+__pycache__

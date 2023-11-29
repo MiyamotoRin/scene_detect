@@ -11,22 +11,14 @@ def get_video_index(texts):
     model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-32', pretrained='laion2b_s34b_b79k')
     tokenizer = open_clip.get_tokenizer('ViT-B-32')
 
-    # Define the directory path containing the images
-    directory_path = '/Volumes/Steam SSD/videos/thumbnails/'  # This path will need to be updated by the user
-
-    # List all image files in the specified directory
-    # image_files = [os.path.join(directory_path, file) for file in os.listdir(directory_path) if file.lower().endswith(('.png', '.jpg', '.jpeg'))]
-
     # Define the texts to compare with
     text_tokens = tokenizer(texts)
-
-    # Placeholder for the similarity scores and corresponding image paths
-    image_similarity = {text: [] for text in texts}
 
     # Load the Usearch index
     index = Index()
     # index.load('index.usearch')
-    index = Index.restore('index.usearch', view=True)
+    index.restore('index.usearch', view=True)
+    print(index)
 
     # Process each image and calculate similarity
     with torch.no_grad(), torch.cuda.amp.autocast():
