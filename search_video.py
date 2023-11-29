@@ -17,8 +17,7 @@ def get_video_index(texts):
     # Load the Usearch index
     index = Index()
     # index.load('index.usearch')
-    index.restore('index.usearch', view=True)
-    print(index)
+    index = Index.restore('index.usearch', view=True)
 
     # Process each image and calculate similarity
     with torch.no_grad(), torch.cuda.amp.autocast():
@@ -51,4 +50,5 @@ def get_video_path(video_id):
     
 if __name__ == '__main__':
     video_id = get_video_index(["A fire works in the sky"])
-    get_video_path(video_id)
+    path = get_video_path(video_id)
+    print(path)
