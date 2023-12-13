@@ -3,3 +3,4 @@
 *.usearch
 *.db
 __pycache__
+.venv
