@@ -19,15 +19,16 @@ def create_thumbnails_for_all_videos(input_path, output_path, thumbnail_options)
             # サムネイルを生成
             generate_thumbnail(file_path, thumbnail_path, thumbnail_options)
 
-input_path = "/Volumes/Steam_SSD/videos/scenes"
-output_path = "/Volumes/Steam_SSD/videos/thumbnails"
+if __name__ == '__main__':
+    input_path = "/Volumes/Steam_SSD/videos/scenes"
+    output_path = "/Volumes/Steam_SSD/videos/thumbnails"
 
-options = {
-	'trim': False,
-	'height': 300,
-	'width': 300,
-	'quality': 85,
-	'type': 'thumbnail'
-}
+    options = {
+        'trim': False,
+        'height': 300,
+        'width': 300,
+        'quality': 85,
+        'type': 'thumbnail'
+    }
 
-create_thumbnails_for_all_videos(input_path, output_path, options)
+    create_thumbnails_for_all_videos(input_path, output_path, options)
