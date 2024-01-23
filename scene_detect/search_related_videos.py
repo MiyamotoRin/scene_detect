@@ -1,3 +1,6 @@
+import sys
+sys.path.append("make_scenario_with_video_flow/LLaVA/")
+
 import torch
 from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
 from llava.conversation import conv_templates, SeparatorStyle
